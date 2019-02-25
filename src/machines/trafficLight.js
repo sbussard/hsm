@@ -10,8 +10,15 @@ export const states = {
 export const configuration = {
   initial: states.GREEN,
   states: {
-    [states.GREEN]: { on: { turnYellow: states.YELLOW } },
-    [states.YELLOW]: { on: { turnRed: states.RED } },
+    [states.GREEN]: {
+      on: { turnYellow: states.YELLOW }
+    },
+    [states.YELLOW]: {
+      on: {
+        turnGreen: states.GREEN,
+        turnRed: states.RED
+      }
+    },
     [states.RED]: {
       on: { turnGreen: states.GREEN },
       ...pedestrianMachine

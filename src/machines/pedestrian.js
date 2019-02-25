@@ -9,8 +9,14 @@ export const states = {
 export const configuration = {
   initial: states.WALK,
   states: {
-    [states.WALK]: { on: { countdown: states.WAIT } },
-    [states.WAIT]: { on: { countdown: states.STOP } },
+    [states.WALK]: {
+      type: 'atomic',
+      on: { countdown: states.WAIT }
+    },
+    [states.WAIT]: {
+      type: 'atomic',
+      on: { countdown: states.STOP }
+    },
     [states.STOP]: {}
   }
 };
